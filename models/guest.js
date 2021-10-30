@@ -7,11 +7,11 @@ const GuestSchema = new Schema(
     name: {type: String, required: true, maxLength: 100},
     attending: {type: Boolean, required: true},
     numberOfGuests: {type: Number, required: true},
-    Entree: {type: String, required: true},
-    Dietary: {type: String, required: true, maxLength: 100},
-    guestName: {type: String, required: true},
-    guestMeal: {type: String, required: true},
-    guestDietary: {type: String, required: true, maxLength: 100},
+    Entree: {type: String},
+    Dietary: {type: String, maxLength: 100},
+    guestName: {type: String},
+    guestMeal: {type: String},
+    guestDietary: {type: String, maxLength: 100},
   }
 );
 
