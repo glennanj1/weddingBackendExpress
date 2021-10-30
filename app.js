@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const port = 3000
+
 
 
 require('dotenv').config()
@@ -35,8 +35,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/guests', guestRouter)
 
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
-})
+app.listen(process.env.PORT || 3000, 
+	() => console.log("Server is running..."));
 
 module.exports = app;
