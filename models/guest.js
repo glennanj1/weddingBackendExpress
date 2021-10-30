@@ -1,8 +1,8 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-var GuestSchema = new Schema(
+const GuestSchema = new Schema(
   {
     name: {type: String, required: true, maxLength: 100},
     attending: {type: Boolean, required: true},
