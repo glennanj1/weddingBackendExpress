@@ -23,7 +23,7 @@ db.on('open', () => { console.log('success my guy')})
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 app.use(cors({
-	origin: 'https://glennan-wedding.herokuapp.com/guests'
+	origin: 'https://www.glennanwedding.com'
 }));
 app.use(logger('dev'));
 app.use(express.json());
