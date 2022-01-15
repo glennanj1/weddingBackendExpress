@@ -21,10 +21,20 @@ mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
 var db = mongoose.connection;
 db.on('open', () => { console.log('success my guy')})
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+const whitelist = process.env.WHITELISTED_DOMAINS
+  ? process.env.WHITELISTED_DOMAINS.split(",")
+  : []
+const corsOptions = {
+	origin: function (origin, callback) {
+		if (!origin || whitelist.indexOf(origin) !== -1) {
+		  callback(null, true)
+		} else {
+		  callback(new Error("Not allowed by CORS"))
+		}
+	  }
+}
 
-app.use(cors({
-	origin: 'https://www.glennanwedding.com'
-}));
+app.use(cors(corsOptions));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
