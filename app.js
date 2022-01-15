@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 
 require('dotenv').config()
 
@@ -21,6 +22,9 @@ var db = mongoose.connection;
 db.on('open', () => { console.log('success my guy')})
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
+app.use(cors({
+	origin: 'https://glennan-wedding.herokuapp.com/guests'
+}));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
