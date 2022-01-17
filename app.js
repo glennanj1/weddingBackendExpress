@@ -43,7 +43,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/guests', guestRouter)
+app.use('/guests', guestRouter, cors(corsOptions));
 
 app.listen(process.env.PORT || 3000, 
 	() => console.log("Server is running..."));
